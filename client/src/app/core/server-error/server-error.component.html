@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h4 class="mb-4">Internal Server Error</h4>
+  <ng-container *ngIf="error">
+    <div class="code-block py-4">
+      <code class="p-4">{{error.details}}</code>
+    </div>
+
+    <div class="stack-trace border-top-0">
+      <pre class="p-4">Error: {{error.message}}</pre>
+    </div>
+  </ng-container>
+  <h5 class="mt-2">
+    What to do next?
+  </h5>
+  <ol>
+    <li>Check the network tab in chrome dev tools.</li>
+    <li>Reproduce the request in a rest client.</li>
+    <li>Check server code referenced in stack trace.</li>
+  </ol>
+</div>
