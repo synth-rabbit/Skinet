@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BasketService } from 'src/app/basket/basket.service';
+import { BasketItem } from 'src/app/shared/models/basket';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,7 +11,12 @@ import { environment } from 'src/environments/environment';
 export class NavBarComponent {
   isProd: boolean;
 
-  constructor(){
+  constructor(public basketService: BasketService){
     this.isProd = environment.production;
+  }
+
+  getBasketCount(items: BasketItem[]): number {
+
+    return items.reduce((prev, next) => prev + next.quantity, 0);
   }
 }
